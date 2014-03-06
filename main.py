@@ -1,4 +1,7 @@
-import numpy as np 
+import numpy as np
+import matplotlib.pyplot as pl
+
+  
 def bar_from_temp_and_volumes(temp,volumes):
     """returns pressure in Bar needed to carbonate a keg at 'volumes' of CO2 and 'temp' temperature
     British style beers = 2.0 - 2.4  (I think that 1.0 is more like it)
@@ -12,8 +15,19 @@ def bar_from_temp_and_volumes(temp,volumes):
 
 volumes = np.arange(2,3.1,0.1)
 temps = range(26)
-for t in temps:
-    print str(t)+"C",
-    for v in volumes:
-        print round(bar_from_temp_and_volumes(t,v),1),
-    print "\n"
+
+v, t = np.meshgrid(volumes, temps)
+
+pl.contourf(v,t,bar_from_temp_and_volumes(t,v),30)
+foo = pl.colorbar()
+foo.set_label("Bar")
+pl.ylabel("Ambient Temperature")
+pl.xlabel("Volumes of CO2")
+pl.title("Keg carbonation")
+pl.show()
+
+#for t in temps:
+#    print str(t)+"C",
+#    for v in volumes:
+#        print round(bar_from_temp_and_volumes(t,v),1),
+#    print "\n"
