@@ -1,7 +1,7 @@
 KegCarb
 =======
 
-Calculate how many Bar needed to carbonate beer under different temperatures
+Calculate how many Bar needed to carbonate beer at specified volumes of CO2 under different temperatures
 
                       
 |T    |2.0|2.1|2.2|2.3|2.4|2.5|2.6|2.7|2.8|2.9|3.0|
