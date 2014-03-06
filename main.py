@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as pl
+from matplotlib.ticker import MultipleLocator, FormatStrFormatter
 
   
 def bar_from_temp_and_volumes(temp,volumes):
@@ -17,13 +18,26 @@ volumes = np.arange(2,3.1,0.1)
 temps = range(26)
 
 v, t = np.meshgrid(volumes, temps)
+pl.contour(v,t,bar_from_temp_and_volumes(t,v),30, colors='black', linewidth=.5, alpha=0.35)
+pl.contourf(v,t,bar_from_temp_and_volumes(t,v),30, cmap="spectral", linewidth=.5)
 
-pl.contourf(v,t,bar_from_temp_and_volumes(t,v),30)
+xmajorlocator = MultipleLocator(0.1)
+xminorlocator = MultipleLocator(0.02)
+pl.gca().xaxis.set_major_locator(xmajorlocator)
+pl.gca().xaxis.set_minor_locator(xminorlocator)
+
+ymajorlocator = MultipleLocator(2)
+yminorlocator = MultipleLocator(1)
+pl.gca().yaxis.set_major_locator(ymajorlocator)
+pl.gca().yaxis.set_minor_locator(yminorlocator)
+
+
 foo = pl.colorbar()
 foo.set_label("Bar")
-pl.ylabel("Ambient Temperature")
+pl.ylabel("Ambient Temperature [C]")
 pl.xlabel("Volumes of CO2")
 pl.title("Keg carbonation")
+pl.grid()
 pl.show()
 
 #for t in temps:
