@@ -14,15 +14,15 @@ def bar_from_temp_and_volumes(temp,volumes):
     bar = p/14.5037738
     return bar
 
-volumes = np.arange(2,3.1,0.1)
+volumes = np.arange(0.5,5.5,0.1)
 temps = range(26)
-
+cnums = 1 * len(volumes)
 v, t = np.meshgrid(volumes, temps)
-pl.contour(v,t,bar_from_temp_and_volumes(t,v),30, colors='black', linewidth=.5, alpha=0.35)
-pl.contourf(v,t,bar_from_temp_and_volumes(t,v),30, cmap="spectral", linewidth=.5)
+pl.contour(bar_from_temp_and_volumes(t,v),t,v,22, colors='black', linewidth=.5, alpha=0.35)
+pl.contourf(bar_from_temp_and_volumes(t,v),t,v,22, cmap="gist_ncar", linewidth=.5)
 
-xmajorlocator = MultipleLocator(0.1)
-xminorlocator = MultipleLocator(0.02)
+xmajorlocator = MultipleLocator(0.25)
+xminorlocator = MultipleLocator(0.1)
 pl.gca().xaxis.set_major_locator(xmajorlocator)
 pl.gca().xaxis.set_minor_locator(xminorlocator)
 
@@ -33,11 +33,12 @@ pl.gca().yaxis.set_minor_locator(yminorlocator)
 
 
 foo = pl.colorbar()
-foo.set_label("Bar")
+foo.set_label("Volumes of CO2")
 pl.ylabel("Ambient Temperature [C]")
-pl.xlabel("Volumes of CO2")
+pl.xlabel("Bar")
+pl.xlim(0,2.5)
 pl.title("Keg carbonation")
-pl.grid()
+#pl.grid()
 pl.show()
 
 #for t in temps:
