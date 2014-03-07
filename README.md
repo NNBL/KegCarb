@@ -2,22 +2,21 @@ KegCarb
 =======
 
 Calculate how many Bar needed to carbonate beer at specified volumes of CO2 under different temperatures
+![ScreenShot](keg_carbonation_temp_vs_bar.png)
 
 
 |Type|Carbonation level|
 |:---|----------------:|
 |British Style Ales |    1.5 - 2.0 volumes|
+|Porter, Stout |	1.7 - 2.3 volumes|
 |Belgian Ales| 	1.9 - 2.4 volumes|
 |American Ales and Lager|    2.2 - 2.7 volumes|
-|Fruit Lambic |	3.0 - 4.5 volumes|
-|Porter, Stout |	1.7 - 2.3 volumes|
 |European Lagers| 	2.2 - 2.7 volumes|
 |Lambic |	2.4 - 2.8 volumes|
+|Fruit Lambic |	3.0 - 4.5 volumes|
 |German Wheat Beer| 	3.3 - 4.5 volumes|
 
-![ScreenShot](keg_carbonation_temp_vs_volumes_of_co2.png)
 
-                      
 |T    |2.0|2.1|2.2|2.3|2.4|2.5|2.6|2.7|2.8|2.9|3.0|
 |----:|---|---|---|---|---|---|---|---|---|---|---|  
 |0C  |0.2|0.3|0.4|0.4|0.5|0.6|0.6|0.7|0.8|0.8|0.9|
