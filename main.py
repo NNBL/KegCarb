@@ -3,14 +3,14 @@ import matplotlib.pyplot as pl
 from matplotlib.ticker import MultipleLocator, FormatStrFormatter
 
 
-def bar_from_temp_and_volumes(tf, vols):
+def bar_from_temp_and_volumes(tc, vols):
     """returns pressure in Bar needed to carbonate a keg at 'volumes' of CO2 and 'temp' temperature
     British style beers = 2.0 - 2.4  (I think that 1.0 is more like it)
     Most other beers = 2.4 - 2.85
     High-carbonation beers = 2.85 - 2.95"""
     # TODO: native calculation in degrees C
-    tc = (tf * 9/5) + 32  # temp in F
-    p = -16.6999 - (0.0101059*tc) + (0.00116512*tc*tc) + (0.173354*tc*vols) + (4.24267*vols)-(0.0684226*vols*vols)
+    tf = (tc * 9/5) + 32  # temp in F
+    p = -16.6999 - (0.0101059*tc) + (0.00116512*tf*tf) + (0.173354*tf*vols) + (4.24267*vols)-(0.0684226*vols*vols)
     bar_setting = p/14.5037738
     return bar_setting
 
