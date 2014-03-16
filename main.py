@@ -10,7 +10,7 @@ def bar_from_temp_and_volumes(tc, vols):
     High-carbonation beers = 2.85 - 2.95"""
     # TODO: native calculation in degrees C
     tf = (tc * 9/5) + 32  # temp in F
-    p = -16.6999 - (0.0101059*tc) + (0.00116512*tf*tf) + (0.173354*tf*vols) + (4.24267*vols)-(0.0684226*vols*vols)
+    p = -16.6999 - (0.0101059*tf) + (0.00116512*tf*tf) + (0.173354*tf*vols) + (4.24267*vols)-(0.0684226*vols*vols)
     bar_setting = p/14.5037738
     return bar_setting
 
